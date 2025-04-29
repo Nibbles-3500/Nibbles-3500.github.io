@@ -1,12 +1,34 @@
 
-.center {
+.center-text {
     text-align: center;
 }
 
+.bottom-margin {
+    margin-bottom: 30px;
+}
+
+
+.left-margin{
+    margin-left: 100px;
+}
 
 .flex-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    width: 60%;
+    margin: 0 auto;
   } 
+
+
+.flex-item {
+    flex: 1 0 26%;
+    margin: 5px;
+    width: 20%; 
+  }
+
+
+  hr {
+    width: 80%;
+  }
