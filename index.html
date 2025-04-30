@@ -67,7 +67,7 @@
                     <b>Validation</b>: Conduct read/write speed tests, check file integrity, and test compatibility with different SD card sizes. We want to ensure that our SD card is reading and writing at at least 100kHz to ensure that there is enough buffer time for music to be loaded onto the device.
                     <br/>
                     <br/>
-                    <b>Final analysis</b>: We were able to achieve this software requirement. We wanted to ensure that we were reading and writing above 100kHz since our initial expectation was that we would be playing music sampled at 88kHz. Eventually, we decided to play music sampled at 32kHz, but we wanted to ensure that we could hit 
+                    <b>Final analysis</b>: We were able to achieve this software requirement. We wanted to ensure that we were reading and writing above 100kHz since our initial expectation was that we would be playing music sampled at 88kHz. Eventually, we decided to play music sampled at 32kHz (so 64kHz stereo), but we wanted to ensure that we could hit 
                     our initial target sampling rate. Again, we relied on the salae analyzer to conduct these measurements where we measured the read / write speed of the SD card using the salae analyzer by listening on the MISO connection line.
                     <br/>
                     <br/>
@@ -298,7 +298,7 @@
         <h3>System Block Diagram</h3>
         Show your high level design, as done in WS1 and WS2. What are the critical components in your system? How do they communicate (I2C?, interrupts, ADC, etc.)? What power regulation do you need?
         <br/>
-        <img src="doc-pics/Diagram.png" alt="Block Diagram" class="doc-image-smaller">
+        <img src="doc-pics/New_Diagram.png" alt="Block Diagram" class="doc-image-smaller">
 
         <h3>Design Sketches</h3>
         What will your project look like? Do you have any critical design features? Will you need any special manufacturing techniques to achieve your vision, like power tools, laser cutting, or 3D printing?
