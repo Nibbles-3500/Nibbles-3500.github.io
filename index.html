@@ -9,6 +9,8 @@
 <body>
     <h1 class="center-text">Niblets' (not) iPod</h1>
     <h2 class="center-text">By: Praise Ndlovu, Claren Ogira, and Patrick Zhao </h2>
+    <h2 class="center-text">Github Repo: <a>https://github.com/upenn-embedded/final-project-s25-niblets/</a></h2>
+
     <hr>
 
     <h2 class="center-text">Demo Video</h2>
@@ -282,13 +284,159 @@
             <br/>
         </p>
     </div>
+
     <hr>
 
     <h2 class="center-text">Final Project Proposal</h2>
+    <div class="left-text left-margin right-margin">
+        <h3>Abstract</h3>
+        This project develops a digital audio device integrating an LCD, microphone, SD card, speaker, and microcontrollers for seamless audio playback, recording, and user interaction. The system ensures efficient communication, real-time performance, and reliable data storage. Validation includes display responsiveness, audio quality, and peripheral interfacing to optimize functionality and usability.
+        
+        <h3>Motivation</h3>
+        This project builds a standalone digital audio device for recording, playback, and user interaction. It’s a hands-on dive into writing graphics, mastering serial protocols, and making hardware talk seamlessly. The goal? A fully functional, ready-to-use device—while leveling up in embedded systems and low-level programming!
+        
+        <h3>System Block Diagram</h3>
+        Show your high level design, as done in WS1 and WS2. What are the critical components in your system? How do they communicate (I2C?, interrupts, ADC, etc.)? What power regulation do you need?
+        
+        
+        <h3>Design Sketches</h3>
+        What will your project look like? Do you have any critical design features? Will you need any special manufacturing techniques to achieve your vision, like power tools, laser cutting, or 3D printing?
 
+        <h3>Software Requirements Specification (SRS)</h3>
+        <table>
+            <tr>
+              <th>ID</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>SRS-01 - LCD Display Functionality</td>
+              <td>The LCD must accurately render graphics and display the current state of the iPod, including menus, playback status, and user interactions.Validation: Verify display clarity, responsiveness, and update rate during different operations. To quantify this, we would like to see the signals sent from the LCD display being received at the correct speeds correspond to appropiate MCU clock speeds and any scaling we use.            </td>
+            </tr>
+            <tr>
+              <td>SRS-02 SD Card Storage & Read/Write Operations</td>
+              <td>The SD card module must support reading and writing data efficiently, ensuring reliable storage of music, recorded audio, and system logs.Validation Conduct read/write speed tests, check file integrity, and test compatibility with different SD card sizes. We want to ensure that our SD card is reading and writing at at least 100kHz to ensure that there is enough buffer time for music to be loaded onto the device.
+            </td>
+            </tr>
+            <tr>
+                <td>SRS-03 Speaker Audio Output	</td>
+                <td>The speaker must play sound accurately and at a sufficient volume without distortion when provided with an audio signal.Validation Measure frequency response, output power, and signal clarity under different playback conditions. We want to measure the frequency of the audio coming from the speaker and ensure that it is with our expectation of the notes that we are playing / the sampled beats per second that we are expecting.
+                </td>
+              </tr>
+              <tr>
+                <td>SRS-04 Microcontroller (MCU) Interfacing</td>
+                <td>The microcontrollers must communicate seamlessly with each other and with peripherals such as the LCD, microphone, SD card, and speaker.Validation Perform communication protocol tests (e.g., I2C, SPI, UART), measure data transfer latency, and ensure stability under various loads. We will want to test this by ensuring that the communication reates with our devices are correct and are as expected.
+                </td>
+              </tr>
+              <tr>
+                <td>SRS-05 User Interface Responsiveness</td>
+                <td>The system shall provide an intuitive and responsive user interface for navigation and control.Validation Test button responsiveness, menu transitions, and overall usability during different operations. This will be tested by interacting with the device and ensuring that all of the required capabilities mentioned above are integrated into one device without new code configurations.
+                </td>
+              </tr>
+          </table>
+          
+          <h3>Hardware Requirements Specification (HRS)</h3>
+          <table>
+              <tr>
+                <th>ID</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>HRS-01 - LCD Display</td>
+                <td>The LCD display must have a minimum resolution of 128 x 160 pixels and support clear, legible display of menus, playback status, and user interactionsValidation: Verify display clarity, resolution, and update rate during different operations. We will test this by ensuringt that the communication rate between the device and the LCD are correct and by seeing if we are able to render downsampled images onto our device at 20k bytes.
+                </td>
+              </tr>
+              <tr>
+                <td>HRS-02 - SD Card Module	</td>
+                <td>The SD card module must support reading and writing at fast speeds to efficiently handle large files such as audio and system logs.Validation: Conduct read/write speed tests, check file integrity, and test compatibility with different SD card sizes We will want to validate this by testing the read / write speed from SD card device to ensure that it is above 100kHz.
+              </td>
+              </tr>
+              <tr>
+                  <td>HRS-03 - Speaker</td>
+                  <td>The speaker must provide clear and undistorted audio output, with sufficient volume for playback in typical environments. We want this to be at 20db from 1m away. Validation: Measure frequency response, output power, and signal clarity under different playback conditions. We will test this by measuring the noise levels produced by our speaker since we will need an amplifier to work with this device. We would like to hit around 30db for the device to be functioning as intended.
+                  </td>
+                </tr>
+                <tr>
+                  <td>HRS-04 - Microcontroller (MCU)</td>
+                  <td>The microcontroller must manage the system’s components, handle user input, audio processing, and communication between peripherals.Validation: Perform communication protocol tests (e.g., I2C, SPI, UART), measure data transfer latency, and ensure stability under various loads. In order for this to be functioning correctly, we will measure the communication time of the peripherals that we are using and ensure that they are sampling at a rate that will be required from the user.
+                  </td>
+                </tr>
+                <tr>
+                  <td>HRS-05 - Power Supply	</td>
+                  <td>The power supply must support efficient power management to ensure optimal device operation and battery longevity.Validation: Measure power consumption under different workloads and test battery performance over extended usage. To test this, we will need to measure the voltage supply and the current supply using an oscliscope to see if it is 5V. To test if current supply is sufficient, we will both measure the supplied current and use the 5V supply to power our device.
+                  </td>
+                </tr>
+                <tr>
+                  <td>HRS-06 - Buttons & User Interface Controls</td>
+                  <td>Physical buttons or touch interface must allow the user to navigate the system and control media playback and settings.Validation: Test button responsiveness, UI transitions, and overall usability during different operations. To test this, we will need to ensure that button responses are processed within 500ms to ensure that there is sufficient responsiveness in our device.
+                  </td>  
+                </tr>
+            </table>
+
+            <h3>Bill of Materials (BOM)</h3>
+            <p>
+                What major components do you need and why? Try to be as specific as possible. Your Hardware & Software Requirements Specifications should inform your component choices.
+                <br/>
+                <br/>
+                Some components that we will need are the ATMEGA328PB which we intend to utilize with the IMU since we already know how the two devices interface given our worksheet experience. We want to use the NUCLEO-F446RE as our main process since it is able to process mode data, which will be required when we are storing and playing music data, and since it has more pins that will allow us to interface with all of our components.
+                <br/>
+                <br/>
+                Some output components that we are using are our adafruit speaker, which we find to be standard, an audiojack to allow earbud use and an LCD display touch panel. We chose the LCD display with the touch functionality because of both its touch functionality and because of the bigger display and its wider range of colors.
+                <br/>
+                <br/>
+                Our choice of the omnidirectional microphone both reflected on the device's small size and the device's ability to internally process the data that it receives with its internal DAC. We realized that an internal DAC within the microphone would save us tremendous time when building out our device. The same internal DAC reasoning was used in our selection of the amplifier used.
+                <br/>
+                <br/>
+                Finally, the IMU we chose reflected an IMU that we are already familiar with and we chose larger buttons for a more consumer-oriented feel.
+                <br/>
+                <br/>
+                https://docs.google.com/spreadsheets/d/1H9uE5A8rThZXxHaYCtSz2vRuI-nbI0XPYlmzn1kPBnA/edit?gid=2071228825#gid=2071228825
+            </p>
+
+            <h3>Final Demo Goals</h3>
+            <p>
+                We will demonstrate our project in class. The end product will be small enough to fit on a table. The device may be connected to an external power source to supply power to the system. A quiet setup may be required to hear the audio produced by the device, and to record audio using the microphone.
+            </p>
+
+            <h3>Sprint Planning</h3>
+            <table>
+                <tr>
+                  <th>Milestone</th>
+                  <th>Functionality Achieved</th>
+                  <th>Distribution of Work</th>
+
+                </tr>
+                <tr>
+                  <td>Sprint #1</td>
+                  <td>MicroSD Card Reading. LCD turning on with basic graphic functionality. Microphone recording voice. IMU sending understandable data to device. Speaker should be playing some audio that is controllable by both processors. Serial protocols all should be completed as well   </td>
+                  <td>Claren - Microphone voice recording, Praise - LCD turning on with basic graphics, Patrick - Speaker playing audio and SD card reading</td>
+                </tr>
+                <tr>
+                  <td>Sprint #2</td>
+                  <td>Start integration of components. Get audio jack working with amplifier. Start playing music through SD card read through speaker and be able to store recorded audio. Buttons should start controlling board features. LCD screen should display a more understandable graphic. CAD of case should be designed.
+                 </td>
+                <td>
+                    Patrick - Design CAD of case. Praise - Playing music through SD card and selection through LCD screen. Claren - Connect audio jack with amplifier and play music through earbuds.
+                </td>
+                </tr>
+                <tr>
+                    <td>MVP Demo</td>
+                    <td> All components connected and fit inside case. Working minimal demo of song selection and music playing through device. </td>
+                    <td> Patrick - Assembling case, soldering needs. Praise - Connect all of the software components together to play audio. Claren - Work on graphics of LCD screen to allow song selection and better experience.</td>
+                  </tr>
+                  <tr>
+                    <td>Final Demo</td>
+                    <td>Hopefully little to no work left here. Finish any features that were left unfinished from MVP. Program better graphics in the processor for the LCD </td>
+                    <td>Patrick, Praise, Claren - Work on assorted problems to debug at finish ine.</td>
+                  </tr>
+              </table>
+    </div>
+    
     <hr>
 
-    <h2 class="center-text"> Appendix</h2>
+    <h2 class="center-text"> References</h2>
+    LCD library (modified) from Pong Lab.
+    FATfs filesystem for file management.
+    Textbook for STM32 different communication protocols.
     
 
 
