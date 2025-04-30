@@ -3,6 +3,9 @@
     text-align: center;
 }
 
+.left-text{
+    text-align: left;
+}
 .bottom-margin {
     margin-bottom: 30px;
 }
@@ -24,6 +27,17 @@
     margin: 0 auto;
   } 
 
+.doc-image{
+    /* text-align: center; */
+    width: 60%;
+    margin: 0 auto;  
+}
+
+.doc-image-smaller{
+    /* text-align: center; */
+    width: 40%;
+    margin: 0 auto;  
+}
 
 .flex-item {
     flex: 1 0 26%;
