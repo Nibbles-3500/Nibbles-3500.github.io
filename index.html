@@ -439,9 +439,17 @@
     <hr>
 
     <h2 class="center-text"> References</h2>
-    LCD library (modified) from Pong Lab. <br/>
-    FATfs filesystem for file management. <br/>
-    Textbook for STM32 different communication protocols.
+    <b>LCD library (modified) from Pong Lab</b>: We used the LCD register-setting code that was provided to us through the ST7735.c and .h files in lab 4. Since we used the STM32 instead of the AVR,
+    we needed to alter the registers that were initially provided to us. Furthermore, we altered the functions that we wrote for the LCD_GFX.c function to enable different functionalities such as rendering images and 
+    fast rendering of everything (from lines, blocks, text). 
+    <br/>
+    <br/>
+    <b>FATfs filesystem for file management</b>: We used the FATfs library as a file management system to be able to have some abstraction in terms of accessing the files that were loaded onto the SD card. We used the FATfs file system 
+    to open files and read bytes from the files that we used to play music.
+    <br/>
+    <br/>
+    <a href="https://www.oreilly.com/library/view/bare-metal-embedded-c/9781835460818/">Textbook for STM32 different communication protocols.</a>: We used the following textbook for building out our communication protocols with the STM32.
+    This was useful for understanding the registers that we should be using when working with the STM32 where we made changes as necessary since we utilized a different microncontroller than the one that they used.
     
 
 
