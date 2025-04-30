@@ -7,7 +7,8 @@
 <!DOCTYPE html>
 <html>
 <body>
-    <h1 class="center-text">Niblets' Nibble Pod</h1>
+    <h1 class="center-text">Niblets' (not) iPod</h1>
+    <h2 class="center-text">By: Praise Ndlovu, Claren Ogira, and Patrick Zhao </h2>
     <hr>
 
     <h2 class="center-text">Demo Video</h2>
@@ -21,37 +22,49 @@
     <h2 class="center-text">Product Photos</h2>
     <div class="flex-container">
         <img src="pictures/IMG_0145.png" alt="Disassembled Picture" class = "flex-item">
-        <img src="pictures/IMG_0171.png" alt="Front View Photo" class = "flex-item">
-        <img src="pictures/IMG_0147.png" alt="Group Photo" class = "flex-item">
-        <img src="pictures/IMG_0177.png" alt="Disassembled View Top Down" class = "flex-item">
+        <img src="pictures/IMG_0171.png" alt="Photo of us" class = "flex-item">
         <img src="pictures/IMG_0175.png" alt="SD Card Photo" class = "flex-item">
+        <img src="pictures/IMG_0177.png" alt="Disassembled View Top Down" class = "flex-item">
+        <img src="pictures/IMG_0147.png" alt="Group Photo" class = "flex-item">
         <img src="pictures/IMG_0178.png" alt="Screen Photo" class = "flex-item">
       </div> 
 
     <hr>
     <h2 class="center-text">Software Requirement Specification Results</h2>
     <div class="left-margin">
-        <ol>
-            <li> <h3> SRS-01 </h3>
+        <ol class = "right-margin">
+            <li> <h3> SRS-01: LCD Display Functionality </h3>
+                <p>
+                    The LCD must accurately render graphics and display the current state of the iPod, including menus, playback status, and user interactions.Validation: Verify display clarity, responsiveness, and update rate during different operations. To quantify this, we would like to see the signals sent from the LCD display being received at the correct speeds correspond to appropiate MCU clock speeds and any scaling we use.
+                </p>
 
             </li>
 
-            <li> <h3> SRS-02 </h3>
-
+            <li> <h3> SRS-02 SD Card Storage & Read/Write Operations </h3>
+                <p>
+                    The SD card module must support reading and writing data efficiently, ensuring reliable storage of music, recorded audio, and system logs.Validation Conduct read/write speed tests, check file integrity, and test compatibility with different SD card sizes. We want to ensure that our SD card is reading and writing at at least 100kHz to ensure that there is enough buffer time for music to be loaded onto the device.
+                </p>
             </li>
 
 
-            <li> <h3> SRS-03 </h3>
-
+            <li> <h3> SRS-03 Speaker Audio Output </h3>
+                <p>
+                    The speaker must play sound accurately and at a sufficient volume without distortion when provided with an audio signal.Validation Measure frequency response, output power, and signal clarity under different playback conditions. We want to measure the frequency of the audio coming from the speaker and ensure that it is with our expectation of the notes that we are playing / the sampled beats per second that we are expecting.
+                </p>
             </li>
 
 
-            <li> <h3> SRS-04 </h3>
-
+            <li> <h3> SRS-04 Microcontroller (MCU) Interfacing </h3>
+                <p>
+                    The microcontrollers must communicate seamlessly with each other and with peripherals such as the LCD, microphone, SD card, and speaker.Validation Perform communication protocol tests (e.g., I2C, SPI, UART), measure data transfer latency, and ensure stability under various loads. We will want to test this by ensuring that the communication reates with our devices are correct and are as expected.
+                </p>
             </li>
 
 
-            <li> <h3> SRS-05 </h3>
+            <li> <h3> SRS-05 User Interface Responsiveness </h3>
+                <p>
+                    The system shall provide an intuitive and responsive user interface for navigation and control.Validation Test button responsiveness, menu transitions, and overall usability during different operations. This will be tested by interacting with the device and ensuring that all of the required capabilities mentioned above are integrated into one device without new code configurations.
+                </p>
 
             </li>
         </ol>
@@ -60,28 +73,43 @@
     <hr>
     <h2 class="center-text">Hardware Requirement Specification Results</h2>
     <div class="left-margin">
-        <ol>
-            <li> <h3> HRS-01 </h3>
+        <ol class="right-margin">
+            <li> <h3> HRS-01 - LCD Display </h3>
+                <p>
+                    The LCD display must have a minimum resolution of 128 x 180 pixels and support clear, legible display of menus, playback status, and user interactionsValidation: Verify display clarity, resolution, and update rate during different operations. We will test this by ensuring that the communication rate between the device and the LCD are correct and by seeing if we are able to render downsampled images onto our device at 20k bytes.
+                </p>
+            </li>
+
+            <li> <h3> HRS-02 - SD Card Module </h3>
+                <p>
+                    The SD card module must support reading and writing at fast speeds to efficiently handle large files such as audio and system logs.Validation: Conduct read/write speed tests, check file integrity, and test compatibility with different SD card sizes We will want to validate this by testing the read / write speed from SD card device to ensure that it is above 100kHz.
+                </p>
+            </li>
+
+            <li> <h3> HRS-03 - Speaker </h3>
+                <p>
+                    The speaker must provide clear and undistorted audio output, with sufficient volume for playback in typical environments.Validation: Measure frequency response, output power, and signal clarity under different playback conditions. We will test this by measuring the noise levels produced by our speaker since we will need an amplifier to work with this device. We would like to hit around 30db for the device to be functioning as intended.
+                </p>
 
             </li>
 
-            <li> <h3> HRS-02 </h3>
-
+            <li> <h3> HRS-04 - Microcontroller (MCU) </h3>
+                <p>
+                    The microcontroller must manage the system’s components, handle user input, audio processing, and communication between peripherals.Validation: Perform communication protocol tests (e.g., I2C, SPI, UART), measure data transfer latency, and ensure stability under various loads. In order for this to be functioning correctly, we will measure the communication time of the peripherals that we are using and ensure that they are sampling at a rate that will be required from the user.
+                </p>
             </li>
 
 
-            <li> <h3> HRS-03 </h3>
+            <li> <h3> HRS-05 - Power Supply </h3>
+                <p>
+                    The power supply must support efficient power management to ensure optimal device operation and battery longevity.Validation: Measure power consumption under different workloads and test battery performance over extended usage. To test this, we will need to measure the voltage supply and the current supply using an oscliscope to see if it is 5V. To test if current supply is sufficient, we will both measure the supplied current and use the 5V supply to power our device.
+                </p>
 
+            <li><h3>HRS-06 - Buttons & User Interface Controls</h3>
+                <p>
+                    Physical buttons or touch interface must allow the user to navigate the system and control media playback and settings.Validation: Test button responsiveness, UI transitions, and overall usability during different operations. To test this, we will need to ensure that button responses are processed within 500ms to ensure that there is sufficient responsiveness in our device.
+                </p>
             </li>
-
-
-            <li> <h3> HRS-04 </h3>
-
-            </li>
-
-
-            <li> <h3> HRS-05 </h3>
-
             </li>
         </ol>
     </div>

@@ -12,6 +12,9 @@
     margin-left:15%;
 }
 
+.right-margin{
+    margin-right:15%;
+}
 .flex-container {
     display: flex;
     flex-direction: row;
@@ -29,6 +32,9 @@
   }
 
 
-  hr {
+hr {
     width: 80%;
-  }
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom:50px;
+}
